@@ -16,6 +16,8 @@ var RutasPermitidas = "_RutasPermitidas";
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAuthentication, AuthenticationBL>();
 builder.Services.AddScoped<IHotel, HotelBL>();
+builder.Services.AddScoped<IRoom, RoomBL>();
+builder.Services.AddScoped<IBooking, BookingBL>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("HotelsContext");

@@ -35,7 +35,7 @@ namespace Hotels.BusinessLogic.Class
             if (getUser == null) {
                 return new LoginResponse(false, "User not found", null);
             }
-            bool chechPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);
+            bool chechPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.PasswordHash);
             if (chechPassword) {
                 return new LoginResponse(true, "Generated Token", GenerateJWTToken(getUser));
             } else {

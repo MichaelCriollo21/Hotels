@@ -12,13 +12,22 @@ namespace Hotels.Entity.Entities
     {
         [Key]
         public int Id { get; set; }
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; } = null!;
+
         [ForeignKey("Room")]
         public int RoomId { get; set; }
         public Room Room { get; set; } = null!;
+
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
-        public int GuestCount { get; set; }
-        public ICollection<Guest> Guests { get; set; } = new List<Guest>();
-        public EmergencyContact EmergencyContact { get; set; } = null!;
+        public int NumberOfGuests { get; set; }
+        public decimal TotalCost { get; set; }
+        public bool IsConfirmed { get; set; }
+
+        public ICollection<Passenger> Passengers { get; set; } = new List<Passenger>();
+        public EmergencyContact? EmergencyContact { get; set; }
     }
 }

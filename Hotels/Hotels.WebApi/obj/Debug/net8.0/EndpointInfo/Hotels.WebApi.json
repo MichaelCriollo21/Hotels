@@ -36,6 +36,81 @@
         }
       }
     },
+    "/api/Booking/Create": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/FindAllByAgent": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/FindById": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Hotel/Create": {
       "post": {
         "tags": [
@@ -67,7 +142,7 @@
         }
       }
     },
-    "/api/Hotel": {
+    "/api/Hotel/Update": {
       "put": {
         "tags": [
           "Hotel"
@@ -97,6 +172,179 @@
           }
         }
       }
+    },
+    "/api/Hotel/ChangeStatus": {
+      "put": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Room/Create": {
+      "post": {
+        "tags": [
+          "Room"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Room"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Room"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Room"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Room/Update": {
+      "put": {
+        "tags": [
+          "Room"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Room"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Room"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Room"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Room/ChangeStatus": {
+      "put": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Room/SearchRooms": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "name": "checkIn",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "checkOut",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "guests",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Room/GetRoomsByHotel": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "name": "hotelId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -107,6 +355,13 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
           },
           "roomId": {
             "type": "integer",
@@ -123,14 +378,21 @@
             "type": "string",
             "format": "date-time"
           },
-          "guestCount": {
+          "numberOfGuests": {
             "type": "integer",
             "format": "int32"
           },
-          "guests": {
+          "totalCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          },
+          "passengers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Guest"
+              "$ref": "#/components/schemas/Passenger"
             },
             "nullable": true
           },
@@ -161,13 +423,87 @@
             "type": "integer",
             "format": "int32"
           },
+          "bookingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "booking": {
+            "$ref": "#/components/schemas/Booking"
+          },
           "fullName": {
             "type": "string",
             "nullable": true
           },
-          "phoneNumber": {
+          "contactPhone": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Hotel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "agentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/User"
+          },
+          "isEnabled": {
+            "type": "boolean"
+          },
+          "rooms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Room"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDTO": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Passenger": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
           },
           "bookingId": {
             "type": "integer",
@@ -175,16 +511,6 @@
           },
           "booking": {
             "$ref": "#/components/schemas/Booking"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Guest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
           },
           "firstName": {
             "type": "string",
@@ -217,18 +543,11 @@
           "phoneNumber": {
             "type": "string",
             "nullable": true
-          },
-          "bookingId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "booking": {
-            "$ref": "#/components/schemas/Booking"
           }
         },
         "additionalProperties": false
       },
-      "Hotel": {
+      "Role": {
         "type": "object",
         "properties": {
           "id": {
@@ -239,32 +558,11 @@
             "type": "string",
             "nullable": true
           },
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "isEnabled": {
-            "type": "boolean"
-          },
-          "rooms": {
+          "users": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Room"
+              "$ref": "#/components/schemas/User"
             },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LoginDTO": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
             "nullable": true
           }
         },
@@ -303,11 +601,52 @@
           "isEnabled": {
             "type": "boolean"
           },
+          "maxCapacity": {
+            "type": "integer",
+            "format": "int32"
+          },
           "bookings": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Booking"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
             "nullable": true
           }
         },

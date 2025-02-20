@@ -16,17 +16,65 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Hotels.WebApi.Controllers.BookingController",
+    "Method": "Create",
+    "RelativePath": "api/Booking/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "booking",
+        "Type": "Hotels.Entity.Entities.Booking",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.BookingController",
+    "Method": "FindAllByAgent",
+    "RelativePath": "api/Booking/FindAllByAgent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "agentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.BookingController",
+    "Method": "FindById",
+    "RelativePath": "api/Booking/FindById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Hotels.WebApi.Controllers.HotelController",
-    "Method": "UpdateHotel",
-    "RelativePath": "api/Hotel",
+    "Method": "ChangeStatus",
+    "RelativePath": "api/Hotel/ChangeStatus",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "hotelDto",
-        "Type": "Hotels.Entity.Entities.Hotel",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -42,6 +90,117 @@
       {
         "Name": "hotelDto",
         "Type": "Hotels.Entity.DTO.CreateHotelDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.HotelController",
+    "Method": "UpdateHotel",
+    "RelativePath": "api/Hotel/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hotelDto",
+        "Type": "Hotels.Entity.Entities.Hotel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.RoomController",
+    "Method": "ChangeStatus",
+    "RelativePath": "api/Room/ChangeStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.RoomController",
+    "Method": "CreateRoom",
+    "RelativePath": "api/Room/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "Hotels.Entity.Entities.Room",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.RoomController",
+    "Method": "GetRoomsByHotel",
+    "RelativePath": "api/Room/GetRoomsByHotel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hotelId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.RoomController",
+    "Method": "SearchRooms",
+    "RelativePath": "api/Room/SearchRooms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "checkIn",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "checkOut",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "guests",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "city",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotels.WebApi.Controllers.RoomController",
+    "Method": "UpdateRoom",
+    "RelativePath": "api/Room/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "Hotels.Entity.Entities.Room",
         "IsRequired": true
       }
     ],

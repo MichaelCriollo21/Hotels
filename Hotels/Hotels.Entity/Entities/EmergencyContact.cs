@@ -12,10 +12,12 @@ namespace Hotels.Entity.Entities
     {
         [Key]
         public int Id { get; set; }
-        public string FullName { get; set; } = string.Empty;
-        public string PhoneNumber { get; set; } = string.Empty;
+
         [ForeignKey("Booking")]
         public int BookingId { get; set; }
         public Booking Booking { get; set; } = null!;
+
+        public string FullName { get; set; } = string.Empty;
+        public string ContactPhone { get; set; } = string.Empty;
     }
 }

@@ -88,3 +88,4 @@ C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.WebApi\obj\Debug\net8.0\refi
 C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.WebApi\obj\Debug\net8.0\Hotels.WebApi.pdb
 C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.WebApi\obj\Debug\net8.0\Hotels.WebApi.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.WebApi\obj\Debug\net8.0\ref\Hotels.WebApi.dll
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.WebApi\obj\Debug\net8.0\Hotels.WebApi.MvcApplicationPartsAssemblyInfo.cs

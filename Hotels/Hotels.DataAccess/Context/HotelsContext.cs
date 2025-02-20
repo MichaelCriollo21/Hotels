@@ -17,7 +17,7 @@ namespace Hotels.DataAccess.Context
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Guest> Guests { get; set; }
+        public DbSet<Passenger> Passengers { get; set; }
         public DbSet<EmergencyContact> EmergencyContacts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -20,6 +20,7 @@ namespace Hotels.WebApi.Controllers
 
         [HttpPost]
         [Route("Login")]
+        //La contraseña es "Password123!"
         public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
             var result = await IAuthenticationBL.LoginUserAsync(loginDTO);

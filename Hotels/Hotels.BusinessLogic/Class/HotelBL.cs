@@ -17,12 +17,40 @@ namespace Hotels.BusinessLogic.Class
     {
         private readonly IUnitOfWork UnitOfWork;
         private Repository<Hotel> HotelRepository;
-        private Repository<Room> RoomRepository;
+
         public HotelBL(IUnitOfWork UoW)
         {
             this.UnitOfWork = UoW;
             HotelRepository = UnitOfWork.Repository<Hotel>();
-            RoomRepository = UnitOfWork.Repository<Room>();
+        }
+
+        public Hotel ChangeStatus(int Id)
+        {
+            Hotel entityDB = new Hotel();
+            using (IDbContextTransaction transaction = UnitOfWork.GetContext().Database.BeginTransaction())
+            {
+                try
+                {
+                    entityDB = HotelRepository.FindById(Id);
+                    if (entityDB != null)
+                    {
+                        entityDB.IsEnabled = entityDB.IsEnabled ? false : true;
+                        HotelRepository.Update(entityDB);
+                        UnitOfWork.SaveChanges();
+                        transaction.Commit();
+                    }
+                    else
+                    {
+                        transaction.Rollback();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            return entityDB;
         }
 
         public Hotel Create(Hotel entity)
@@ -42,26 +70,6 @@ namespace Hotels.BusinessLogic.Class
                 }
             }
             return entity;
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<Hotel> Find(Hotel entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Hotel> FindAll(string[] IncludeProperties = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Hotel FindById(int Id)
-        {
-            throw new NotImplementedException();
         }
 
         public Hotel Update(Hotel entity)
@@ -91,5 +99,11 @@ namespace Hotels.BusinessLogic.Class
             }
             return entity;
         }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
+
     }
 }
