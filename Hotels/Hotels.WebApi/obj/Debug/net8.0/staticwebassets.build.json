@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "9uJDvFPHCX19t/J5wmK61MlDfIbBcFSspGiDaLspmlU=",
+  "Source": "Hotels.WebApi",
+  "BasePath": "_content/Hotels.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

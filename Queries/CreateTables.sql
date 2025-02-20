@@ -1,0 +1,64 @@
+USE Hotels
+
+CREATE TABLE Roles (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Users (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+	[Password] NVARCHAR(MAX) NOT NULL, 
+    RoleId INT NOT NULL,
+    FOREIGN KEY (RoleId) REFERENCES Roles(Id)
+);
+
+CREATE TABLE Hotels (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(255) NOT NULL,
+    Location NVARCHAR(255) NOT NULL,
+    IsEnabled BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE Rooms (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    HotelId INT NOT NULL,
+    Type NVARCHAR(100) NOT NULL,
+    BaseCost DECIMAL(10,2) NOT NULL,
+    Taxes DECIMAL(10,2) NOT NULL,
+    Location NVARCHAR(255) NOT NULL,
+    IsEnabled BIT NOT NULL DEFAULT 1,
+    FOREIGN KEY (HotelId) REFERENCES Hotels(Id)
+);
+
+CREATE TABLE Bookings (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    RoomId INT NOT NULL,
+    CheckInDate DATETIME NOT NULL,
+    CheckOutDate DATETIME NOT NULL,
+    GuestCount INT NOT NULL,
+    FOREIGN KEY (RoomId) REFERENCES Rooms(Id)
+);
+
+CREATE TABLE Guests (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(100) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    Gender NVARCHAR(50) NOT NULL,
+    DocumentType NVARCHAR(50) NOT NULL,
+    DocumentNumber NVARCHAR(50) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    PhoneNumber NVARCHAR(50) NOT NULL,
+    BookingId INT NOT NULL,
+    FOREIGN KEY (BookingId) REFERENCES Bookings(Id)
+);
+
+CREATE TABLE EmergencyContacts (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    FullName NVARCHAR(100) NOT NULL,
+    PhoneNumber NVARCHAR(50) NOT NULL,
+    BookingId INT NOT NULL UNIQUE,
+    FOREIGN KEY (BookingId) REFERENCES Bookings(Id)
+);

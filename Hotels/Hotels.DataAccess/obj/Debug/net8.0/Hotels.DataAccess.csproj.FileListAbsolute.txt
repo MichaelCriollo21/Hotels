@@ -1,0 +1,16 @@
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.sourcelink.json
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\bin\Debug\net8.0\Hotels.DataAccess.deps.json
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\bin\Debug\net8.0\Hotels.DataAccess.dll
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\bin\Debug\net8.0\Hotels.DataAccess.pdb
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\bin\Debug\net8.0\Hotels.Entity.dll
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\bin\Debug\net8.0\Hotels.Entity.pdb
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.D.78C71061.Up2Date
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.dll
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\refint\Hotels.DataAccess.dll
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\Hotels.DataAccess.pdb
+C:\Users\User\Documents\GitHub\Hotels\Hotels\Hotels.DataAccess\obj\Debug\net8.0\ref\Hotels.DataAccess.dll
