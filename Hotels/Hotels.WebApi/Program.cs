@@ -105,4 +105,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.MapGet("/", () => "¡Hola desde .NET en Vercel!");
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
+app.Run($"http://0.0.0.0:{port}");
